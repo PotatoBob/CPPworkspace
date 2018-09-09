@@ -35,4 +35,42 @@ struct vec2 {
         this -> x = x;
         this -> y = y;
     }
+    vec2 operator+(vec2 v2) {
+        vec2 v1(x, y);
+        v1.add(v2);
+        return v1;
+    }
+    vec2 operator-(vec2 v2) {
+        vec2 v1(x, y);
+        v1.sub(v2);
+        return v1;
+    }
+    vec2 operator*(vec2 v2) {
+        vec2 v1(x, y);
+        v1.mul(v2);
+        return v1;
+    }
+    vec2 operator/(vec2 v2) {
+        vec2 v1(x, y);
+        v1.div(v2);
+        return v1;
+    }
+    void operator+=(vec2 v2) {
+        add(v2);
+    }
+    void operator-=(vec2 v2) {
+        sub(v2);
+    }
+    void operator*=(vec2 v2) {
+        mul(v2);
+    }
+    void operator/=(vec2 v2) {
+        div(v2);
+    }
+    bool operator!=(vec2 v2) {
+        return !equals(v2);
+    }
+    bool operator==(vec2 v2) {
+        return equals(v2);
+    }
 };

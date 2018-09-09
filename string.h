@@ -19,8 +19,9 @@ private:
     // null termination character '\0';
     unsigned int getLengthOfCharString(const char* v){
         unsigned int counter = 0;
-        while(v!='\0') {
+        while(*v!='\0') {
             counter++;
+            v++;
         }
         return counter;
     }
@@ -117,6 +118,7 @@ public:
                 loc[i + charCount] = v[i];
             }
         }
+        charCount = charCount + getLengthOfCharString(v);
     }
 
     // 8. 
@@ -138,6 +140,7 @@ public:
                 loc[i + charCount] = str.loc[i];
             }
         }
+        charCount = charCount + str.charCount;
     }
 
     //9. getter function for the length of the string (total chars).
@@ -153,14 +156,35 @@ public:
     //11. function that returns true if v contains all the same characters
     //    as this string
     bool equals(const char* v){
-        
-        return false;
+        int vLength = getLengthOfCharString(v);
+        if(vLength != charCount) {
+            return false;
+        } else {
+            for(int i = 0; i < charCount; i++) {
+                //printf("loc: %c, v: %c\n", loc[i], v[i]);
+                if(loc[i]!=v[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
     //12. function that returns true if s contains all the same characters
     //    as this string
     bool equals(const String& s){
-        return false;
+        int sLength = s.charCount;
+        char* sLoc = s.loc;
+        if(sLength != charCount) {
+            return false;
+        } else {
+            for(int i = 0; i < charCount; i++) {
+                if(loc[i] != sLoc[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
-
+    
 };

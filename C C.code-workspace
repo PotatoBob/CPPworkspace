@@ -5,6 +5,11 @@
 		}
 	],
 	"settings": {
-		"git.ignoreLimitWarning": true
+		"git.ignoreLimitWarning": true,
+		"files.associations": {
+			"algorithm": "cpp",
+			"__functional_03": "cpp",
+			"functional": "cpp"
+		}
 	}
 }
